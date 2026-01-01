@@ -13,7 +13,40 @@ export default function BordsAnimation() {
     const lCenter = document.querySelector("#laptopCenter");
     const rTextL = document.querySelector("#revealTextLeft");
     const rTextR = document.querySelector("#revealTextRight");
+    const mobileReveal = document.querySelector(".mobile-reveal-text");
 
+    // Mobile-only animation
+    if (mobileReveal && window.innerWidth < 1024) {
+      const mobileTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#pinContainer",
+          start: "top top",
+          end: "+=150%",
+          scrub: 1.2,
+          pin: true,
+          anticipatePin: 1,
+        }
+      });
+
+      mobileTimeline
+        .to(".hero-text", { 
+          opacity: 0, 
+          y: -50, 
+          filter: "blur(15px)", 
+          ease: "power2.inOut" 
+        }, 0)
+        .to(mobileReveal, {
+          opacity: 1,
+          filter: "blur(0px)",
+          ease: "power2.out"
+        }, 0.3);
+
+      return () => {
+        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      };
+    }
+
+    // Desktop animation
     if (!lLeft || !lRight || !lCenter || !rTextL || !rTextR) return;
 
     // --- INITIAL STATE ---

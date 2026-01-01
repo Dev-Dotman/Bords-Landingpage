@@ -1,26 +1,58 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
     <div id="pinContainer" className="relative">
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex flex-col items-center justify-center overflow-visible">
+      <section id="hero" className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
         
+        {/* Mobile Background Image (hidden on desktop) */}
+        <div className="absolute inset-0 lg:hidden">
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url(/bord2.png)' }}
+          ></div>
+          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+        </div>
+
+        {/* Mobile Reveal Text - Only visible on mobile */}
+        <div className="mobile-reveal-text lg:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 opacity-0 z-20">
+          <h2 className="text-5xl sm:text-6xl font-light text-white leading-tight">
+            Organize <br className="sm:hidden"/>visually
+          </h2>
+          <h2 className="text-5xl sm:text-6xl font-light text-white leading-tight mt-8">
+            Work <br className="sm:hidden"/>flexibly
+          </h2>
+        </div>
+
         <div className="max-w-4xl mx-auto text-center z-10 hero-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6">
-          <h1 className="text-6xl md:text-9xl font-semibold leading-[0.95] mb-8 tracking-tighter text-white">
-            Visual <br/><span className="text-zinc-600 italic font-light">productivity<span className="text-blue-200">.</span></span>
+          <h1 className="text-5xl sm:text-6xl md:text-9xl font-semibold leading-[0.95] mb-6 sm:mb-8 tracking-tighter text-white">
+            Visual <br/><span className="text-zinc-300 lg:text-zinc-600 italic font-light">productivity<span className="text-blue-200">.</span></span>
           </h1>
-          <p className="text-xl text-zinc-500 mb-12 max-w-xl mx-auto leading-relaxed font-light">
+          <p className="text-base sm:text-xl text-zinc-200 lg:text-zinc-500 mb-12 max-w-xl mx-auto leading-relaxed font-light px-4">
             Organize tasks, ideas, and projects with <span className="text-blue-200/70">drag-and-drop boards</span> and modular blocks.
           </p>
         </div>
 
-        {/* 3D Laptop Scene */}
-        <div className="scene-container w-full max-w-6xl mx-auto h-full flex items-center justify-center">
+        {/* 3D Laptop Scene - Desktop Only */}
+        <div className="scene-container w-full max-w-full mx-auto h-full flex items-center justify-center overflow-hidden px-4 hidden lg:flex">
           <div className="floor-reflection"></div>
           
           <div className="laptop-group">
             {/* Reveal Text */}
-            <div className="bg-reveal-text left-[5%] top-[35%] !text-5xl md:!text-6xl max-w-[40%]" id="revealTextLeft">Organize  visually</div>
-            <div className="bg-reveal-text right-[5%] top-[40%] !text-5xl md:!text-6xl max-w-[40%]" id="revealTextRight">Work  flexibly</div>
+            <div className="bg-reveal-text left-[5%] top-[35%] !text-6xl max-w-[40%]" id="revealTextLeft">Organize  visually</div>
+            <div className="bg-reveal-text right-[5%] top-[40%] !text-6xl max-w-[40%]" id="revealTextRight">Work  flexibly</div>
 
             {/* Side Laptops */}
             <div className="laptop-mockup w-[450px] aspect-[16/10] left-[-150px] z-10" id="laptopLeft">
