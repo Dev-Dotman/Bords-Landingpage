@@ -32,11 +32,11 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/bordlogo.png", sizes: "32x32", type: "image/png" },
-      { url: "/bordlogo.png", sizes: "16x16", type: "image/png" },
+      { url: "/bord2.png", sizes: "32x32", type: "image/png" },
+      { url: "/bord2.png", sizes: "16x16", type: "image/png" },
     ],
     apple: [
-      { url: "/bordlogo.png", sizes: "180x180", type: "image/png" },
+      { url: "/bord2.png", sizes: "180x180", type: "image/png" },
     ],
   },
 };
