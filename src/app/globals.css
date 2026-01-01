@@ -1,26 +1,158 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --bg-dark: #0a0a0a;
+  --text-light: #ffffff;
+  --accent-gray: #222222;
+  --laptop-chassis: #1a1a1a;
+  --ui-dark-bg: #141414;
+  --ui-card-dark: #1c1c1c;
+  --ui-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-font {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* 3D Composition Styles */
+.scene-container {
+  perspective: 3000px;
+  transform-style: preserve-3d;
+}
+
+.laptop-group {
+  transform-style: preserve-3d;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Background Text reveal styles */
+.bg-reveal-text {
+  position: absolute;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 10vw;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  z-index: 5;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateZ(-200px);
+  text-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* Laptop Container with Lid and Base */
+.laptop-mockup {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.9));
+}
+
+.laptop-lid {
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  position: relative;
+  z-index: 2;
+}
+
+.laptop-base {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--laptop-chassis);
+  border-radius: 4px 4px 16px 16px;
+  transform: rotateX(85deg);
+  transform-origin: bottom;
+  border: 1px solid #333;
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.5);
+}
+
+.screen-content {
+  background: var(--ui-dark-bg);
+  border: 12px solid #1a1a1a;
+  border-radius: 16px 16px 4px 4px;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.bezel-top {
+  height: 24px;
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-dot {
+  width: 4px;
+  height: 4px;
+  background: #333;
+  border-radius: 50%;
+}
+
+.ui-header {
+  height: 40px;
+  border-bottom: 1px solid var(--ui-border);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  background: rgba(255,255,255,0.02);
+}
+
+.ui-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #333;
+  margin-right: 6px;
+}
+
+.glass-nav {
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.floor-reflection {
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(90deg);
+  width: 150%;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.stat-card {
+  background: linear-gradient(145deg, #121212, #0a0a0a);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* New Product Section Styles */
+.stationary-mockup-wrap {
+  perspective: 2000px;
+}
+
+.stationary-laptop {
+  transform: rotateY(-25deg) rotateX(10deg);
+  transform-style: preserve-3d;
 }
