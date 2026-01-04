@@ -21,7 +21,7 @@ export default function Navbar() {
           <a href="#features" className="hover:text-white transition-colors">Why BORDS</a>
           <a href="#manifesto" className="hover:text-white transition-colors">Our approach</a>
         </div>
-        <a href="https://bords-nu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-sm font-medium bg-white text-black px-8 py-3 rounded-full hover:bg-gray-200 transition-all shadow-lg inline-block">
+        <a href="https://app.bords.app" target="_blank" rel="noopener noreferrer" className="text-sm font-medium bg-white text-black px-8 py-3 rounded-full hover:bg-gray-200 transition-all shadow-lg inline-block">
           Get Started
         </a>
       </div>
