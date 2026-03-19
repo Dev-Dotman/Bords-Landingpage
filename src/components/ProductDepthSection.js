@@ -1,3 +1,5 @@
+import SyncVisualization from './SyncVisualization';
+
 export default function ProductDepthSection() {
   return (
     <section id="product-depth" className="py-20 lg:py-40 bg-black overflow-hidden relative">
@@ -18,28 +20,37 @@ export default function ProductDepthSection() {
         {/* Content Left */}
         <div className="space-y-8 lg:space-y-12">
           <div>
-            <span className="text-zinc-500 text-sm tracking-[0.4em] uppercase mb-4 lg:mb-6 block">Modern Productivity</span>
+            <span className="text-zinc-500 text-sm tracking-[0.4em] uppercase mb-4 lg:mb-6 block">Real-Time Collaboration</span>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold brand-font tracking-tight text-white leading-tight">
-              More than a <span className="text-zinc-500 italic">to-do app.</span>
+              Works <span className="text-zinc-500 italic">offline.</span><br/>Syncs <span className="text-zinc-500 italic">instantly.</span>
             </h2>
           </div>
           
           <div className="space-y-6 lg:space-y-8">
             <div className="flex gap-4 lg:gap-6">
-              <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-zinc-800"></div>
+              <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-pink-200/20"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Visual Flexibility</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Offline-First Architecture</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  A digital surface for ideas, tasks, and projects. Organize and move your work freely without being boxed in by rigid structures.
+                  Every board works without internet. Changes are saved locally and sync seamlessly when you reconnect — no data loss, ever.
                 </p>
               </div>
             </div>
             <div className="flex gap-4 lg:gap-6">
-              <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-zinc-800"></div>
+              <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-blue-200/20"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Modular by Design</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Multi-User Editing</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  Everything is a block that can be stacked, linked, or rearranged. Combine the simplicity of sticky notes with the power of modular boards.
+                  See teammates' live cursors. Edit simultaneously. Changes merge automatically with conflict-free CRDTs — no "last write wins".
+                </p>
+              </div>
+            </div>
+            <div className="flex gap-4 lg:gap-6">
+              <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-yellow-100/10"></div>
+              <div>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Voice & Video Inside</h4>
+                <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
+                  Start a call directly in your board. Discuss while looking at the same canvas — no app switching required.
                 </p>
               </div>
             </div>
@@ -84,6 +95,19 @@ export default function ProductDepthSection() {
           </div>
         </div>
 
+      </div>
+
+      {/* Sync Visualization Section */}
+      <div className="max-w-7xl mx-auto px-6 mt-20 lg:mt-32 relative z-10">
+        <div className="text-center mb-12 lg:mb-16">
+          <h3 className="text-2xl md:text-3xl lg:text-5xl font-semibold brand-font tracking-tight text-white mb-4">
+            Offline-first. <span className="text-zinc-500 italic">Always in sync.</span>
+          </h3>
+          <p className="text-base lg:text-lg text-zinc-500 max-w-2xl mx-auto font-light">
+            Watch how BORDS seamlessly handles offline work and automatic syncing with YJS CRDTs
+          </p>
+        </div>
+        <SyncVisualization />
       </div>
     </section>
   );
