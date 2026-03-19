@@ -18,27 +18,40 @@ export const metadata = {
   description: "Organize tasks, ideas, and projects with drag-and-drop boards, sticky notes, and checklists — all in a flexible, minimalist workspace.",
   keywords: "productivity, task management, kanban, visual workspace, project management, sticky notes, drag and drop",
   authors: [{ name: "AXECORE Labs" }],
+  metadataBase: new URL("https://bords.co"),
   openGraph: {
     title: "BORDS | Visual Productivity Platform",
     description: "Organize tasks, ideas, and projects with drag-and-drop boards, sticky notes, and checklists.",
     type: "website",
     locale: "en_US",
     siteName: "BORDS",
+    images: [
+      {
+        url: "/bordlogo.png",
+        width: 1024,
+        height: 1024,
+        alt: "BORDS Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "BORDS | Visual Productivity Platform",
     description: "Organize tasks, ideas, and projects with drag-and-drop boards, sticky notes, and checklists.",
+    images: ["/bordlogo.png"],
   },
   icons: {
     icon: [
-      { url: "/bordlogo.png", sizes: "32x32", type: "image/png" },
-      { url: "/bordlogo.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
     apple: [
-      { url: "/bordlogo.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  manifest: "/site.webmanifest",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({ children }) {
