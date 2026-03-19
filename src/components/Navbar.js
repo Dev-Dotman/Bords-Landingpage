@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 
-export default function Navbar() {
+export default function Navbar({ onWaitlistClick }) {
   return (
     <nav className="fixed top-0 w-full z-[100] glass-nav">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -21,13 +23,13 @@ export default function Navbar() {
           <a href="#features" className="hover:text-white transition-colors">Why BORDS</a>
           <a href="#manifesto" className="hover:text-white transition-colors">Our approach</a>
         </div>
-        <a href="https://app.bords.app" target="_blank" rel="noopener noreferrer" className="text-sm font-medium bg-white text-black px-8 py-3 rounded-full hover:bg-gray-200 transition-all shadow-lg inline-block">
-          Get Started
-
-
-
-          
-        </a>
+        <button
+          type="button"
+          onClick={onWaitlistClick}
+          className="text-sm font-medium bg-white text-black px-8 py-3 rounded-full hover:bg-gray-200 transition-all shadow-lg inline-block"
+        >
+          Join Waitlist
+        </button>
       </div>
     </nav>
   );

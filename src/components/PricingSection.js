@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, Zap, Users, Shield, Server, Headphones, ArrowRight } from 'lucide-react';
+import { Check, Zap, Users, Shield, Server, ArrowRight } from 'lucide-react';
 
-export default function PricingSection() {
+export default function PricingSection({ onWaitlistClick, onDemoClick }) {
   const [activeTab, setActiveTab] = useState('teams');
 
   const teamPlans = [
@@ -242,14 +242,23 @@ export default function PricingSection() {
                 ))}
               </ul>
 
-              <a
-                href="https://bords-nu.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block w-full text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all ${plan.ctaStyle}`}
-              >
-                {plan.cta}
-              </a>
+              {activeTab === 'teams' ? (
+                <button
+                  type="button"
+                  onClick={() => onWaitlistClick?.(`pricing-${plan.name.toLowerCase()}`)}
+                  className={`block w-full text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all ${plan.ctaStyle}`}
+                >
+                  Join Waitlist
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => onDemoClick?.(`dedicated-${plan.name.toLowerCase().replace(/\s+/g, '-')}`)}
+                  className={`block w-full text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all ${plan.ctaStyle}`}
+                >
+                  {plan.cta}
+                </button>
+              )}
             </div>
           ))}
         </div>
@@ -289,14 +298,13 @@ export default function PricingSection() {
             <p className="text-sm text-zinc-500 mb-6 max-w-md mx-auto">
               Dedicated instances include isolated infrastructure, custom integrations, SLA guarantees, and onboarding assistance.
             </p>
-            <a
-              href="https://bords-nu.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => onDemoClick?.('dedicated-enterprise-cta')}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-xl font-semibold text-sm hover:bg-zinc-200 transition-all"
             >
               Book a Demo <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         )}
 
