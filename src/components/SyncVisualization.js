@@ -63,8 +63,8 @@ export default function SyncVisualization() {
         {/* Main content area */}
         <div className="px-6 lg:px-8 py-8 lg:py-10">
 
-          {/* Three-column: Device | Transfer | Cloud */}
-          <div className="grid grid-cols-[1fr_auto_1fr] gap-6 lg:gap-10 items-center">
+          {/* Three-column on desktop, stacked on mobile */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-6 lg:gap-10 items-center">
 
             {/* Device column */}
             <div>
@@ -76,10 +76,10 @@ export default function SyncVisualization() {
               </div>
 
               <div className="space-y-2.5">
-                {['Board: Sprint Planning', 'Board: Product Roadmap', 'Board: Design System'].map((item, i) => (
+                {['Sprint Planning', 'Product Roadmap', 'Design System'].map((item, i) => (
                   <div
                     key={i}
-                    className={`px-4 py-3 rounded-xl border transition-all duration-700 ${
+                    className={`px-3 md:px-4 py-2.5 md:py-3 rounded-xl border transition-all duration-700 ${
                       syncState === 'offline'
                         ? 'bg-zinc-800 border-zinc-700 shadow-sm'
                         : syncState === 'syncing' && i < changeCount
@@ -103,25 +103,26 @@ export default function SyncVisualization() {
               </div>
             </div>
 
-            {/* Transfer column */}
-            <div className="flex flex-col items-center gap-3 py-4">
+            {/* Transfer column — horizontal on mobile, vertical on desktop */}
+            <div className="flex md:flex-col items-center justify-center gap-3 py-2 md:py-4">
               {syncState === 'offline' ? (
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex md:flex-col items-center gap-2">
                   <svg className="w-5 h-5 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
                   </svg>
-                  <div className="w-px h-12 bg-zinc-800"></div>
-                  <span className="text-[10px] text-zinc-600 text-center">No<br/>connection</span>
+                  <div className="hidden md:block w-px h-12 bg-zinc-800"></div>
+                  <div className="md:hidden h-px w-10 bg-zinc-800"></div>
+                  <span className="text-[10px] text-zinc-600 text-center">No connection</span>
                 </div>
               ) : syncState === 'syncing' ? (
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex md:flex-col items-center gap-2">
                   <div className="relative">
                     <svg className="w-5 h-5 text-zinc-400 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182" />
                     </svg>
                   </div>
                   {/* Transfer dots */}
-                  <div className="flex flex-col gap-1.5">
+                  <div className="flex md:flex-col gap-1.5">
                     <div className="w-1 h-1 bg-zinc-500 rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
                     <div className="w-1 h-1 bg-zinc-500 rounded-full animate-pulse" style={{ animationDelay: '200ms' }}></div>
                     <div className="w-1 h-1 bg-zinc-500 rounded-full animate-pulse" style={{ animationDelay: '400ms' }}></div>
@@ -129,11 +130,12 @@ export default function SyncVisualization() {
                   <span className="text-[10px] text-zinc-500">Merging</span>
                 </div>
               ) : (
-                <div className="flex flex-col items-center gap-2">
+                <div className="flex md:flex-col items-center gap-2">
                   <svg className="w-5 h-5 text-zinc-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                   </svg>
-                  <div className="w-px h-12 bg-zinc-800"></div>
+                  <div className="hidden md:block w-px h-12 bg-zinc-800"></div>
+                  <div className="md:hidden h-px w-10 bg-zinc-800"></div>
                   <span className="text-[10px] text-zinc-600">In sync</span>
                 </div>
               )}
@@ -152,7 +154,7 @@ export default function SyncVisualization() {
                 {['Sprint Planning', 'Product Roadmap', 'Design System'].map((item, i) => (
                   <div
                     key={i}
-                    className={`px-4 py-3 rounded-xl border transition-all duration-700 ${
+                    className={`px-3 md:px-4 py-2.5 md:py-3 rounded-xl border transition-all duration-700 ${
                       syncState === 'offline'
                         ? 'bg-zinc-800/30 border-zinc-800/50 opacity-50'
                         : syncState === 'syncing'

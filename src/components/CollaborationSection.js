@@ -27,20 +27,34 @@ export default function CollaborationSection() {
     };
 
     const newLines = [];
+    const isMobile = window.innerWidth < 768;
+
     // Yellow sticky right → Pink sticky left
     const a1 = getPoint(yellowRef, 'right');
     const b1 = getPoint(pinkRef, 'left');
     if (a1 && b1) newLines.push({ from: a1, to: b1 });
 
-    // Blue sticky right → Checklist left
-    const a2 = getPoint(blueRef, 'right');
-    const b2 = getPoint(checklistRef, 'left');
-    if (a2 && b2) newLines.push({ from: a2, to: b2 });
+    if (isMobile) {
+      // Mobile: Blue sticky → Kanban
+      const a2 = getPoint(blueRef, 'right');
+      const b2 = getPoint(kanbanRef, 'left', 0.3);
+      if (a2 && b2) newLines.push({ from: a2, to: b2 });
 
-    // Checklist right → Kanban left (at 1/3 height)
-    const a3 = getPoint(checklistRef, 'right', 0.33);
-    const b3 = getPoint(kanbanRef, 'left', 0.33);
-    if (a3 && b3) newLines.push({ from: a3, to: b3 });
+      // Mobile: Kanban → Checklist
+      const a3 = getPoint(kanbanRef, 'left', 0.7);
+      const b3 = getPoint(checklistRef, 'right', 0.33);
+      if (a3 && b3) newLines.push({ from: a3, to: b3 });
+    } else {
+      // Desktop: Blue sticky right → Checklist left
+      const a2 = getPoint(blueRef, 'right');
+      const b2 = getPoint(checklistRef, 'left');
+      if (a2 && b2) newLines.push({ from: a2, to: b2 });
+
+      // Checklist right → Kanban left (at 1/3 height)
+      const a3 = getPoint(checklistRef, 'right', 0.33);
+      const b3 = getPoint(kanbanRef, 'left', 0.33);
+      if (a3 && b3) newLines.push({ from: a3, to: b3 });
+    }
 
     setLines(newLines);
   }, []);
@@ -89,7 +103,7 @@ export default function CollaborationSection() {
         {/* Collaboration Demo Canvas — mirrors actual BORDS workspace */}
         <div className="relative mx-auto max-w-5xl">
           {/* Canvas frame */}
-          <div className="relative bg-zinc-900 rounded-2xl border border-zinc-800 min-h-[520px] lg:min-h-[640px] overflow-hidden shadow-2xl">
+          <div className="relative bg-zinc-900 rounded-2xl border border-zinc-800 min-h-[620px] md:min-h-[520px] lg:min-h-[640px] overflow-hidden shadow-2xl">
 
             {/* Grid background */}
             <div className="absolute inset-0 pointer-events-none" style={{
@@ -103,13 +117,15 @@ export default function CollaborationSection() {
                 <img src="/bordclear.png" alt="" className="w-4 h-4" />
               </div>
               <span className="text-[11px] font-bold tracking-tighter text-white">BORDS</span>
-              <div className="w-px h-4 bg-zinc-600/50"></div>
-              <div className="w-5 h-5 rounded-full bg-blue-500/30"></div>
-              <span className="text-[11px] text-zinc-400 font-medium">Sarah</span>
+              <div className="hidden md:block w-px h-4 bg-zinc-600/50"></div>
+              <div className="hidden md:flex items-center gap-1.5">
+                <div className="w-5 h-5 rounded-full bg-blue-500/30"></div>
+                <span className="text-[11px] text-zinc-400 font-medium">Sarah</span>
+              </div>
             </div>
 
-            {/* Board name pill (center top) */}
-            <div className="absolute top-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 px-3 py-1.5 bg-zinc-800/90 backdrop-blur-xl rounded-xl border border-zinc-700/50 shadow-lg">
+            {/* Board name pill (center top) — hidden on small mobile */}
+            <div className="absolute top-3 left-1/2 -translate-x-1/2 z-30 hidden sm:flex items-center gap-2 px-3 py-1.5 bg-zinc-800/90 backdrop-blur-xl rounded-xl border border-zinc-700/50 shadow-lg">
               <span className="text-[11px] font-semibold text-white">Sprint Planning</span>
               <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-semibold">EDITOR</span>
               <div className="w-px h-4 bg-zinc-600/50"></div>
@@ -124,7 +140,7 @@ export default function CollaborationSection() {
             </div>
 
             {/* TopBar (right) */}
-            <div className="absolute top-3 right-3 z-30 flex items-center gap-2 px-3 py-1.5 bg-zinc-800/90 backdrop-blur-xl rounded-xl border border-zinc-700/50 shadow-lg">
+            <div className="absolute top-3 right-3 z-30 hidden sm:flex items-center gap-2 px-3 py-1.5 bg-zinc-800/90 backdrop-blur-xl rounded-xl border border-zinc-700/50 shadow-lg">
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                 <span className="text-[10px] text-zinc-400 font-medium">3 online</span>
@@ -160,7 +176,7 @@ export default function CollaborationSection() {
               </svg>
 
               {/* Sticky Note 1 — yellow */}
-              <div ref={yellowRef} className="absolute top-[22%] left-6 lg:left-10 w-36 lg:w-44 rounded-2xl p-3 lg:p-4 backdrop-blur-sm border border-black/10 rotate-1 z-10" style={{ backgroundColor: 'rgb(253 224 71 / 0.9)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
+              <div ref={yellowRef} className="absolute top-[8%] md:top-[22%] left-3 md:left-6 lg:left-10 w-28 md:w-36 lg:w-44 rounded-2xl p-2.5 md:p-3 lg:p-4 backdrop-blur-sm border border-black/10 rotate-1 z-10" style={{ backgroundColor: 'rgb(253 224 71 / 0.9)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
                 <div className="flex items-center gap-1.5 mb-2">
                   <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-gradient-to-r from-zinc-700 to-zinc-600 text-white font-medium">Sticky Note</span>
                 </div>
@@ -172,7 +188,7 @@ export default function CollaborationSection() {
               </div>
 
               {/* Sticky Note 2 — pink */}
-              <div ref={pinkRef} className="absolute top-[20%] left-44 lg:left-60 w-28 lg:w-36 rounded-2xl p-3 backdrop-blur-sm border border-black/10 -rotate-2 z-10" style={{ backgroundColor: 'rgb(249 168 212 / 0.9)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
+              <div ref={pinkRef} className="absolute top-[6%] md:top-[20%] right-3 md:right-auto md:left-44 lg:left-60 w-24 md:w-28 lg:w-36 rounded-2xl p-2.5 md:p-3 backdrop-blur-sm border border-black/10 -rotate-2 z-10" style={{ backgroundColor: 'rgb(249 168 212 / 0.9)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
                 <div className="space-y-1.5 mt-1">
                   <div className="h-1.5 w-4/5 bg-pink-600/30 rounded"></div>
                   <div className="h-1.5 w-3/5 bg-pink-600/20 rounded"></div>
@@ -180,7 +196,7 @@ export default function CollaborationSection() {
               </div>
 
               {/* Sticky Note 3 — blue (smaller, offset) */}
-              <div ref={blueRef} className="absolute bottom-20 left-6 lg:left-12 w-28 lg:w-32 rounded-2xl p-3 backdrop-blur-sm border border-black/10 rotate-2 z-10" style={{ backgroundColor: 'rgb(147 197 253 / 0.9)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
+              <div ref={blueRef} className="absolute top-[22%] md:bottom-20 md:top-auto left-3 md:left-6 lg:left-12 w-24 md:w-28 lg:w-32 rounded-2xl p-2.5 md:p-3 backdrop-blur-sm border border-black/10 rotate-2 z-10" style={{ backgroundColor: 'rgb(147 197 253 / 0.9)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
                 <div className="space-y-1.5 mt-1">
                   <div className="h-1.5 w-full bg-blue-600/25 rounded"></div>
                   <div className="h-1.5 w-2/3 bg-blue-600/15 rounded"></div>
@@ -188,16 +204,16 @@ export default function CollaborationSection() {
               </div>
 
               {/* Kanban Board — rounded-3xl like real product */}
-              <div ref={kanbanRef} className="absolute top-[38%] right-4 lg:right-8 w-56 lg:w-72 rounded-3xl border border-white/20 backdrop-blur-sm z-10" style={{ backgroundColor: 'rgb(191 219 254 / 0.85)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
+              <div ref={kanbanRef} className="absolute top-[36%] md:top-[38%] left-3 md:left-auto md:right-4 lg:right-8 w-[calc(100%-24px)] md:w-56 lg:w-72 rounded-2xl md:rounded-3xl border border-white/20 backdrop-blur-sm z-10 overflow-hidden" style={{ backgroundColor: 'rgb(191 219 254 / 0.85)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
                 {/* Kanban header */}
                 <div className="flex items-center justify-between px-3 py-2 border-b border-zinc-200/50">
                   <span className="text-[11px] font-semibold text-gray-800">Sprint Board</span>
                   <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-white/80 text-gray-700">6</span>
                 </div>
                 {/* Columns */}
-                <div className="flex gap-1.5 p-2">
+                <div className="flex gap-1 md:gap-1.5 p-1.5 md:p-2 overflow-hidden">
                   {/* To Do */}
-                  <div className="flex-1 bg-zinc-50/80 rounded-2xl p-1.5">
+                  <div className="flex-1 min-w-0 bg-zinc-50/80 rounded-xl md:rounded-2xl p-1 md:p-1.5">
                     <div className="text-[8px] font-semibold text-gray-600 px-1 mb-1 truncate">To Do</div>
                     <div className="space-y-1">
                       <div className="p-1.5 rounded-xl border border-zinc-200/60 bg-white">
@@ -217,7 +233,7 @@ export default function CollaborationSection() {
                     </div>
                   </div>
                   {/* In Progress */}
-                  <div className="flex-1 bg-zinc-50/80 rounded-2xl p-1.5">
+                  <div className="flex-1 min-w-0 bg-zinc-50/80 rounded-xl md:rounded-2xl p-1 md:p-1.5">
                     <div className="text-[8px] font-semibold text-gray-600 px-1 mb-1 truncate">In Progress</div>
                     <div className="space-y-1">
                       <div className="p-1.5 rounded-xl border border-zinc-200/60 bg-white">
@@ -230,7 +246,7 @@ export default function CollaborationSection() {
                     </div>
                   </div>
                   {/* Done */}
-                  <div className="flex-1 bg-zinc-50/80 rounded-2xl p-1.5">
+                  <div className="flex-1 min-w-0 bg-zinc-50/80 rounded-xl md:rounded-2xl p-1 md:p-1.5">
                     <div className="text-[8px] font-semibold text-gray-600 px-1 mb-1 truncate">Done</div>
                     <div className="space-y-1">
                       <div className="p-1.5 rounded-xl border border-zinc-200/60 bg-white">
@@ -253,7 +269,7 @@ export default function CollaborationSection() {
               </div>
 
               {/* Checklist — green, rounded-3xl */}
-              <div ref={checklistRef} className="absolute bottom-16 left-40 lg:left-52 w-40 lg:w-48 rounded-3xl p-3 backdrop-blur-md border border-black/10 z-10" style={{ backgroundColor: 'rgb(134 239 172 / 0.85)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
+              <div ref={checklistRef} className="absolute bottom-14 left-3 md:left-40 lg:left-52 w-[55%] md:w-40 lg:w-48 rounded-2xl md:rounded-3xl p-2.5 md:p-3 backdrop-blur-md border border-black/10 z-10" style={{ backgroundColor: 'rgb(134 239 172 / 0.85)', boxShadow: '0 10px 40px rgba(0,0,0,0.15)' }}>
                 <div className="text-[10px] font-semibold text-gray-800 mb-2">Launch Checklist</div>
                 <div className="space-y-1.5">
                   <div className="flex items-center gap-2 bg-white/60 backdrop-blur-sm rounded-xl px-2 py-1.5 border border-white/50">
@@ -279,8 +295,8 @@ export default function CollaborationSection() {
                 </div>
               </div>
 
-              {/* Right Sidebar strip */}
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 bg-zinc-800/90 backdrop-blur-xl rounded-l-2xl py-3 flex flex-col items-center gap-2.5 border-l border-zinc-700/50 z-20">
+              {/* Right Sidebar strip — hidden on mobile */}
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-8 bg-zinc-800/90 backdrop-blur-xl rounded-l-2xl py-3 hidden md:flex flex-col items-center gap-2.5 border-l border-zinc-700/50 z-20">
                 <div className="w-3 h-3 rounded bg-zinc-600"></div>
                 <div className="w-3 h-3 rounded bg-zinc-600"></div>
                 <div className="w-3 h-3 rounded bg-zinc-600"></div>
@@ -289,25 +305,25 @@ export default function CollaborationSection() {
             </div>
 
             {/* ─── Bottom Dock ─── */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 px-3 py-1.5 bg-zinc-800/90 backdrop-blur-xl rounded-2xl border border-zinc-700/50 shadow-lg">
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 px-2 md:px-3 py-1.5 bg-zinc-800/90 backdrop-blur-xl rounded-2xl border border-zinc-700/50 shadow-lg">
               {/* Navigation group */}
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-px h-5 bg-zinc-600/30 mx-0.5"></div>
+              <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="w-px h-4 md:h-5 bg-zinc-600/30 mx-0.5"></div>
               {/* Content creation */}
-              <div className="w-4 h-4 rounded bg-yellow-200/60 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-blue-400/50 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-px h-5 bg-zinc-600/30 mx-0.5"></div>
+              <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-yellow-200/60 hover:scale-125 transition-transform"></div>
+              <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="hidden sm:block w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-blue-400/50 hover:scale-125 transition-transform"></div>
+              <div className="hidden sm:block w-3.5 h-3.5 md:w-4 md:h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="w-px h-4 md:h-5 bg-zinc-600/30 mx-0.5"></div>
               {/* Drawing tools */}
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
-              <div className="w-px h-5 bg-zinc-600/30 mx-0.5"></div>
+              <div className="hidden md:block w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="hidden md:block w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="hidden md:block w-4 h-4 rounded bg-zinc-600 hover:scale-125 transition-transform"></div>
+              <div className="hidden md:block w-px h-5 bg-zinc-600/30 mx-0.5"></div>
               {/* Zoom */}
-              <span className="text-[9px] text-zinc-500 font-medium px-1">100%</span>
+              <span className="text-[8px] md:text-[9px] text-zinc-500 font-medium px-1">100%</span>
             </div>
 
             {/* Animated Live Cursors */}
@@ -323,11 +339,11 @@ export default function CollaborationSection() {
               >
                 {/* Cursor pointer */}
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
-                  className="cursor-pointer"
+                  className="cursor-pointer md:w-6 md:h-6"
                   style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.3))' }}
                 >
                   <path
@@ -340,7 +356,7 @@ export default function CollaborationSection() {
 
                 {/* Name badge */}
                 <div
-                  className="cursor-name-badge absolute left-6 top-0 px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap shadow-lg"
+                  className="cursor-name-badge absolute left-5 md:left-6 top-0 px-2 md:px-3 py-1 md:py-1.5 rounded-full text-[10px] md:text-xs font-semibold whitespace-nowrap shadow-lg"
                   style={{
                     backgroundColor: cursor.color,
                     color: '#000'
@@ -363,7 +379,7 @@ export default function CollaborationSection() {
             ))}
 
             {/* Sync indicator */}
-            <div className="absolute bottom-12 right-12 flex items-center gap-2 bg-zinc-800/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-zinc-700/50 z-20">
+            <div className="absolute bottom-12 right-3 md:right-12 flex items-center gap-2 bg-zinc-800/80 backdrop-blur-sm px-2.5 md:px-3 py-1.5 rounded-full border border-zinc-700/50 z-20">
               <div className="sync-pulse w-1.5 h-1.5 rounded-full bg-green-400"></div>
               <span className="text-[10px] text-zinc-300 font-medium">Live</span>
             </div>
@@ -429,13 +445,30 @@ export default function CollaborationSection() {
             transform: translate(0, 0);
           }
           25% {
-            transform: translate(40px, -20px);
+            transform: translate(20px, -10px);
           }
           50% {
-            transform: translate(80px, 30px);
+            transform: translate(40px, 15px);
           }
           75% {
-            transform: translate(40px, 50px);
+            transform: translate(20px, 25px);
+          }
+        }
+
+        @media (min-width: 768px) {
+          @keyframes cursorMove {
+            0%, 100% {
+              transform: translate(0, 0);
+            }
+            25% {
+              transform: translate(40px, -20px);
+            }
+            50% {
+              transform: translate(80px, 30px);
+            }
+            75% {
+              transform: translate(40px, 50px);
+            }
           }
         }
 
