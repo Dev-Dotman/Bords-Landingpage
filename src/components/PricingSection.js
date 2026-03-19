@@ -26,7 +26,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
     },
     {
       name: 'Starter',
-      price: '$8',
+      price: 'Coming Soon',
       period: 'per workspace / mo',
       description: 'For small teams getting organized',
       accent: 'blue',
@@ -43,7 +43,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
     },
     {
       name: 'Growth',
-      price: '$15',
+      price: 'Coming Soon',
       period: 'per workspace / mo',
       description: 'For startups and active teams',
       accent: 'purple',
@@ -61,7 +61,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
     },
     {
       name: 'Scale',
-      price: '$25',
+      price: 'Coming Soon',
       period: 'per workspace / mo',
       description: 'For serious teams at full speed',
       accent: 'red',
@@ -81,8 +81,8 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
   const dedicatedPlans = [
     {
       name: 'Team Dedicated',
-      price: '$99 – $199',
-      period: 'per month',
+      price: 'Coming Soon',
+      period: '',
       description: 'For agencies and small companies',
       accent: 'amber',
       features: [
@@ -97,8 +97,8 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
     },
     {
       name: 'Business Dedicated',
-      price: '$299 – $799',
-      period: 'per month',
+      price: 'Coming Soon',
+      period: '',
       description: 'For growing companies',
       accent: 'orange',
       popular: true,
@@ -115,8 +115,8 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
     },
     {
       name: 'Enterprise',
-      price: 'Custom',
-      period: 'tailored to you',
+      price: 'Coming Soon',
+      period: '',
       description: 'For corporations with full control',
       accent: 'red',
       features: [
@@ -222,10 +222,16 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
               </p>
 
               <div className="mb-6">
-                <span className="text-4xl lg:text-5xl font-bold brand-font">{plan.price}</span>
-                <span className={`text-sm ml-2 ${plan.popular ? 'text-zinc-400' : 'text-zinc-600'}`}>
-                  / {plan.period}
-                </span>
+                {plan.price === 'Coming Soon' ? (
+                  <span className="text-2xl lg:text-3xl font-bold brand-font text-zinc-400">{plan.price}</span>
+                ) : (
+                  <>
+                    <span className="text-4xl lg:text-5xl font-bold brand-font">{plan.price}</span>
+                    <span className={`text-sm ml-2 ${plan.popular ? 'text-zinc-400' : 'text-zinc-600'}`}>
+                      / {plan.period}
+                    </span>
+                  </>
+                )}
               </div>
 
               <ul className="space-y-3 mb-8">
