@@ -93,10 +93,10 @@ export default function CollaborationSection() {
         <div className="text-center mb-16 lg:mb-24">
           <span className="text-zinc-500 text-sm tracking-[0.4em] uppercase mb-4 lg:mb-6 block">Live Collaboration</span>
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold brand-font tracking-tight mb-6 lg:mb-8">
-            See teammates <br/><span className="text-zinc-500 italic">in real time.</span>
+            Collaborate on <br/><span className="text-zinc-500 italic">the same system.</span>
           </h2>
           <p className="text-base lg:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed">
-            Watch live cursors move across the board. Know who's editing what. Collaborate without conflict.
+            Watch live cursors move across one shared board. Plan together, execute together, and keep every decision in context.
           </p>
         </div>
 

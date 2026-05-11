@@ -12,10 +12,10 @@ export default function WorkspacesSection() {
         <div className="text-center mb-16 lg:mb-24">
           <span className="text-zinc-500 text-sm tracking-[0.4em] uppercase mb-4 lg:mb-6 block">Workspaces</span>
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold brand-font tracking-tight mb-6 lg:mb-8">
-            Personal <span className="text-zinc-600 italic">or</span> team.<br/>Your choice.
+            Personal boards <span className="text-zinc-600 italic">to</span> team operations.
           </h2>
           <p className="text-base lg:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed">
-            Start with your personal workspace, then create organizations when you're ready to collaborate with your team.
+            Start solo or with friends, then scale into startup and team workspaces without changing how your system is organized.
           </p>
         </div>
 

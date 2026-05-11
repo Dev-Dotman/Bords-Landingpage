@@ -99,26 +99,29 @@ export default function HeroSection() {
         {/* Mobile Reveal Text - Only visible on mobile */}
         <div className="mobile-reveal-text lg:hidden absolute inset-0 flex flex-col items-center justify-center text-center px-6 opacity-0 z-20">
           <h2 className="text-5xl sm:text-6xl font-light text-white leading-tight">
-            Collaborate <br className="sm:hidden"/>in real time
+            Plan <br className="sm:hidden"/>together
           </h2>
           <h2 className="text-5xl sm:text-6xl font-light text-white leading-tight mt-8">
-            Work <br className="sm:hidden"/>together
+            Move <br className="sm:hidden"/>with clarity
           </h2>
         </div>
 
         <div className="max-w-4xl mx-auto text-center z-10 hero-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6">
-          <h1 className="text-5xl sm:text-6xl md:text-9xl font-semibold leading-[0.95] mb-6 sm:mb-8 tracking-tighter text-white">
-            Collaboration <br/><span className="text-zinc-300 lg:text-zinc-600 italic font-light">at its finest<span className="text-blue-200">.</span></span>
+          <h1 className="text-4xl sm:text-5xl md:text-8xl font-semibold leading-[0.95] mb-6 sm:mb-8 tracking-tighter text-white">
+            <span className="whitespace-nowrap">Structured team</span> <br/><span className="text-zinc-300 lg:text-zinc-600 italic font-light">collaboration<span className="text-blue-200">.</span></span>
           </h1>
           <p className="text-base sm:text-xl text-zinc-200 lg:text-zinc-500 mb-12 max-w-xl mx-auto leading-relaxed font-light px-4">
-            Organize visually. Work together <span className="text-pink-200/70">in real time</span>. Build on an <span className="text-blue-200/70">infinite canvas</span>.
+            One <span className="text-blue-200/70">infinite board canvas</span> to plan work, collaborate live, and turn plans into SOPs with AI.
+          </p>
+          <p className="text-xs sm:text-sm text-zinc-400/90 tracking-wide uppercase">
+            Personal • Teams • Consultants • Enterprise
           </p>
         </div>
 
         {/* Reveal Text — above overlay, in section stacking context */}
         <div className="absolute inset-0 z-[8] pointer-events-none hidden lg:block">
-          <div className="bg-reveal-text left-[5%] top-[35%] !text-6xl max-w-[40%]" id="revealTextLeft">Collaborate  in real time</div>
-          <div className="bg-reveal-text right-[5%] top-[40%] !text-6xl max-w-[40%]" id="revealTextRight">Work  together</div>
+          <div className="bg-reveal-text left-[5%] top-[35%] !text-6xl max-w-[40%]" id="revealTextLeft">Plan together</div>
+          <div className="bg-reveal-text right-[5%] top-[40%] !text-6xl max-w-[40%]" id="revealTextRight">Move with clarity</div>
         </div>
 
         {/* 3D Laptop Scene - Desktop Only */}

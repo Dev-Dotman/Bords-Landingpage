@@ -11,7 +11,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Free',
       price: '$0',
       period: 'forever',
-      description: 'For individuals and small teams',
+      description: 'For personal use, friends, and early collaboration',
       accent: 'emerald',
       features: [
         'Unlimited boards',
@@ -28,7 +28,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Starter',
       price: 'Coming Soon',
       period: 'per workspace / mo',
-      description: 'For small teams getting organized',
+      description: 'For small teams building repeatable workflows',
       accent: 'blue',
       features: [
         '10 active collaborators',
@@ -45,7 +45,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Growth',
       price: 'Coming Soon',
       period: 'per workspace / mo',
-      description: 'For startups and active teams',
+      description: 'For startups and teams scaling operations',
       accent: 'purple',
       popular: true,
       features: [
@@ -63,7 +63,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Scale',
       price: 'Coming Soon',
       period: 'per workspace / mo',
-      description: 'For serious teams at full speed',
+      description: 'For high-velocity teams and consultant-led programs',
       accent: 'red',
       features: [
         'Unlimited collaborators',
@@ -83,7 +83,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Team Dedicated',
       price: 'Coming Soon',
       period: '',
-      description: 'For agencies and small companies',
+      description: 'For agencies and companies needing managed deployment',
       accent: 'amber',
       features: [
         'Isolated environment',
@@ -99,7 +99,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Business Dedicated',
       price: 'Coming Soon',
       period: '',
-      description: 'For growing companies',
+      description: 'For growing companies with strict performance needs',
       accent: 'orange',
       popular: true,
       features: [
@@ -117,7 +117,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
       name: 'Enterprise',
       price: 'Coming Soon',
       period: '',
-      description: 'For corporations with full control',
+      description: 'For enterprise organizations requiring isolated deployment',
       accent: 'red',
       features: [
         'Fully isolated deployment',
@@ -127,7 +127,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
         'Onboarding assistance',
         'Everything in Business',
       ],
-      cta: 'Contact Sales',
+      cta: 'Contact Support',
       ctaStyle: 'border border-zinc-700 text-white hover:bg-zinc-800',
     },
   ];
@@ -155,7 +155,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
             Start <span className="text-zinc-500 italic">free.</span><br />Scale when ready.
           </h2>
           <p className="text-base lg:text-xl text-zinc-400 max-w-2xl mx-auto font-light leading-relaxed">
-            We charge for workspace value, collaboration intensity, and AI usage — not the number of seats.
+            Pricing is built for personal users, friends, startups, and teams. Enterprise deployments are handled with dedicated infrastructure managed by us.
           </p>
         </div>
 
@@ -187,8 +187,8 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
           </div>
           <p className="text-center text-sm text-zinc-500 mt-4 max-w-md mx-auto">
             {activeTab === 'teams'
-              ? 'Pick a plan that fits your workflow — from solo projects to growing teams.'
-              : 'We spin up a private Bords instance for your organization — isolated infrastructure, custom subdomain, and dedicated performance.'}
+              ? 'Pick a plan for personal boards, collaborative teams, or consultant-led systems.'
+              : 'We deploy and manage a private BORDS environment for your organization with isolated data and compute.'}
           </p>
         </div>
 
@@ -302,14 +302,14 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
             </div>
             <h3 className="text-2xl lg:text-3xl font-bold brand-font text-white mb-3">Need full control?</h3>
             <p className="text-sm text-zinc-500 mb-6 max-w-md mx-auto">
-              Dedicated instances include isolated infrastructure, custom integrations, SLA guarantees, and onboarding assistance.
+              Dedicated deployments include isolated data boundaries, reserved compute capacity, custom integrations, SLA options, and onboarding support.
             </p>
             <button
               type="button"
               onClick={() => onDemoClick?.('dedicated-enterprise-cta')}
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black rounded-xl font-semibold text-sm hover:bg-zinc-200 transition-all"
             >
-              Book a Demo <ArrowRight className="w-4 h-4" />
+              Contact Support <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         )}
@@ -317,7 +317,7 @@ export default function PricingSection({ onWaitlistClick, onDemoClick }) {
         {/* Bottom note */}
         <div className="mt-12 lg:mt-16 text-center">
           <p className="text-zinc-600 text-sm">
-            All plans include offline-first architecture, real-time sync, and our core canvas tools.
+            All plans include offline-first architecture, real-time collaboration, and boards with integrated AI context.
           </p>
         </div>
       </div>

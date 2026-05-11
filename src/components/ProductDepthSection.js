@@ -20,9 +20,9 @@ export default function ProductDepthSection() {
         {/* Content Left */}
         <div className="space-y-8 lg:space-y-12">
           <div>
-            <span className="text-zinc-500 text-sm tracking-[0.4em] uppercase mb-4 lg:mb-6 block">Real-Time Collaboration</span>
+            <span className="text-zinc-500 text-sm tracking-[0.4em] uppercase mb-4 lg:mb-6 block">Structured Collaboration</span>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold brand-font tracking-tight text-white leading-tight">
-              Works <span className="text-zinc-500 italic">offline.</span><br/>Syncs <span className="text-zinc-500 italic">instantly.</span>
+              Boards for <span className="text-zinc-500 italic">execution.</span><br/>AI for <span className="text-zinc-500 italic">daily work.</span>
             </h2>
           </div>
           
@@ -30,27 +30,27 @@ export default function ProductDepthSection() {
             <div className="flex gap-4 lg:gap-6">
               <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-pink-200/20"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Offline-First Architecture</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Boards as living systems</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  Every board works without internet. Changes are saved locally and sync seamlessly when you reconnect — no data loss, ever.
+                  Bring planning, conversations, workflows, and SOPs into one board so your team can move from the same source of truth.
                 </p>
               </div>
             </div>
             <div className="flex gap-4 lg:gap-6">
               <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-blue-200/20"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Multi-User Editing</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">AI built into the board</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  See teammates' live cursors. Edit simultaneously. Changes merge automatically with conflict-free CRDTs — no "last write wins".
+                  BORDS AI uses board context to shape plans, generate SOPs, answer questions, and help each teammate move work forward.
                 </p>
               </div>
             </div>
             <div className="flex gap-4 lg:gap-6">
               <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-yellow-100/10"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Voice & Video Inside</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Real-time collaboration at every step</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  Start a call directly in your board. Discuss while looking at the same canvas — no app switching required.
+                  Collaborate live with friends or teams, keep context in one place, and make decisions without constant app switching.
                 </p>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function ProductDepthSection() {
             Offline-first. <span className="text-zinc-500 italic">Always in sync.</span>
           </h3>
           <p className="text-base lg:text-lg text-zinc-500 max-w-2xl mx-auto font-light">
-            Watch how BORDS seamlessly handles offline work and automatic syncing with YJS CRDTs
+            Work locally, collaborate globally, and keep structured boards reliable with conflict-free syncing.
           </p>
         </div>
         <SyncVisualization />

@@ -4,6 +4,9 @@ import { useState } from "react";
 import BordsAnimation from "@/components/BordsAnimation";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import BordsOverviewSection from "@/components/BordsOverviewSection";
+import CompanyBrainSection from "@/components/CompanyBrainSection";
+import BordsAISection from "@/components/BordsAISection";
 import ProductDepthSection from "@/components/ProductDepthSection";
 import CollaborationSection from "@/components/CollaborationSection";
 import CanvasToolsSection from "@/components/CanvasToolsSection";
@@ -42,12 +45,15 @@ export default function Home() {
         <div id="smooth-content">
           <HeroSection />
           <ProductDepthSection />
+          <BordsOverviewSection />
+          <CompanyBrainSection />
+          <BordsAISection />
           <CollaborationSection />
           <CanvasToolsSection />
           <LogicSection />
           <WorkspacesSection />
           <FeaturesSection />
-          <PricingSection onWaitlistClick={(source) => openWaitlist(source || "pricing")} onDemoClick={(source) => openDemo(source || "pricing-dedicated")} />
+          {/* <PricingSection onWaitlistClick={(source) => openWaitlist(source || "pricing")} onDemoClick={(source) => openDemo(source || "pricing-dedicated")} /> */}
           <ManifestoSection />
           <CTASection onWaitlistClick={() => openWaitlist("cta")} onDemoClick={() => openDemo("cta")} />
           <Footer />
