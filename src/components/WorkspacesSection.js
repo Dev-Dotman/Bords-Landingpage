@@ -48,18 +48,18 @@ export default function WorkspacesSection() {
         </div>
 
         {/* Dashboard Mockups */}
-        <div className="relative min-h-[560px] lg:min-h-[680px]">
+        <div className="relative lg:min-h-[680px]">
 
           {/* ── Personal Dashboard Mockup ── */}
           <div
-            className={`absolute inset-0 transition-all duration-500 ${
+            className={`lg:absolute lg:inset-0 transition-all duration-500 ${
               activeWorkspace === 'personal'
                 ? 'opacity-100 translate-x-0'
-                : 'opacity-0 -translate-x-8 pointer-events-none'
+                : 'hidden lg:block lg:opacity-0 lg:-translate-x-8 pointer-events-none'
             }`}
           >
             <div className="bg-zinc-950 rounded-2xl lg:rounded-3xl border border-zinc-800 overflow-hidden shadow-2xl shadow-black/40">
-              <div className="flex min-h-[520px] lg:min-h-[640px]">
+              <div className="flex min-h-[420px] lg:min-h-[640px]">
 
                 {/* Sidebar */}
                 <div className="hidden lg:flex flex-col w-52 border-r border-zinc-800 bg-zinc-900/60 shrink-0">
@@ -111,7 +111,7 @@ export default function WorkspacesSection() {
                 {/* Main content */}
                 <div className="flex-1 flex flex-col min-w-0">
                   {/* Top action bar */}
-                  <div className="flex items-center justify-end gap-2 px-5 lg:px-6 pt-4 pb-2 border-b border-zinc-800/60">
+                  <div className="hidden sm:flex items-center justify-end gap-2 px-5 lg:px-6 pt-4 pb-2 border-b border-zinc-800/60">
                     <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-400 text-xs hover:bg-zinc-800 transition-colors">
                       <RefreshCw className="w-3 h-3" strokeWidth={1.5} /> Refresh
                     </button>
@@ -123,13 +123,13 @@ export default function WorkspacesSection() {
                     </button>
                   </div>
 
-                  <div className="flex-1 p-5 lg:p-6 overflow-hidden">
+                  <div className="flex-1 p-4 lg:p-6 overflow-y-auto lg:overflow-hidden">
                     {/* Header */}
-                    <div className="mb-5">
+                    <div className="mb-4">
                       <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-0.5">Personal Workspace</p>
                       <h3 className="text-lg font-bold text-white">Welcome back, Jamie Cole</h3>
-                      <div className="flex items-center gap-3 mt-1 text-xs text-zinc-500">
-                        <span>Wednesday, May 13</span>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-xs text-zinc-500">
+                        <span>Wed, May 13</span>
                         <span className="text-zinc-700">·</span>
                         <span>0 in progress</span>
                         <span className="text-zinc-700">·</span>
@@ -214,14 +214,14 @@ export default function WorkspacesSection() {
 
           {/* ── Organization Dashboard Mockup ── */}
           <div
-            className={`absolute inset-0 transition-all duration-500 ${
+            className={`lg:absolute lg:inset-0 transition-all duration-500 ${
               activeWorkspace === 'organization'
                 ? 'opacity-100 translate-x-0'
-                : 'opacity-0 translate-x-8 pointer-events-none'
+                : 'hidden lg:block lg:opacity-0 lg:translate-x-8 pointer-events-none'
             }`}
           >
             <div className="bg-zinc-950 rounded-2xl lg:rounded-3xl border border-zinc-800 overflow-hidden shadow-2xl shadow-black/40">
-              <div className="flex min-h-[520px] lg:min-h-[640px]">
+              <div className="flex min-h-[420px] lg:min-h-[640px]">
 
                 {/* Sidebar */}
                 <div className="hidden lg:flex flex-col w-52 border-r border-zinc-800 bg-zinc-900/60 shrink-0">
@@ -273,7 +273,7 @@ export default function WorkspacesSection() {
                 {/* Main content */}
                 <div className="flex-1 flex flex-col min-w-0">
                   {/* Top action bar */}
-                  <div className="flex items-center justify-end gap-2 px-5 lg:px-6 pt-4 pb-2 border-b border-zinc-800/60">
+                  <div className="hidden sm:flex items-center justify-end gap-2 px-5 lg:px-6 pt-4 pb-2 border-b border-zinc-800/60">
                     <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-zinc-700 text-zinc-400 text-xs hover:bg-zinc-800 transition-colors">
                       <RefreshCw className="w-3 h-3" strokeWidth={1.5} /> Refresh
                     </button>
@@ -285,13 +285,13 @@ export default function WorkspacesSection() {
                     </button>
                   </div>
 
-                  <div className="flex-1 p-5 lg:p-6 overflow-hidden">
+                  <div className="flex-1 p-4 lg:p-6 overflow-y-auto lg:overflow-hidden">
                     {/* Header: org name + metadata */}
-                    <div className="mb-5">
+                    <div className="mb-4">
                       <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 mb-0.5">Axecore Labs</p>
                       <h3 className="text-lg font-bold text-white">Dashboard</h3>
-                      <div className="flex items-center gap-3 mt-1 text-xs text-zinc-500">
-                        <span>Wednesday, May 13</span>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 text-xs text-zinc-500">
+                        <span>Wed, May 13</span>
                         <span className="text-zinc-700">·</span>
                         <span>5 members</span>
                         <span className="text-zinc-700">·</span>
@@ -331,7 +331,7 @@ export default function WorkspacesSection() {
                       <div className="h-2.5 rounded-full bg-zinc-800 overflow-hidden my-3">
                         <div className="h-full rounded-full bg-gradient-to-r from-blue-500 to-teal-400" style={{ width: '25%' }}></div>
                       </div>
-                      <div className="flex items-center gap-4 text-[10px] text-zinc-500">
+                      <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[10px] text-zinc-500">
                         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-zinc-600 inline-block"></span> Draft: 0</span>
                         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-400 inline-block"></span> In Progress: 9</span>
                         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-teal-400 inline-block"></span> Completed: 3</span>
@@ -339,9 +339,9 @@ export default function WorkspacesSection() {
                     </div>
 
                     {/* Bottom: Timeline + Donut */}
-                    <div className="grid grid-cols-5 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
                       {/* Assignment Timeline */}
-                      <div className="col-span-3 bg-zinc-900 rounded-xl border border-zinc-800 p-4">
+                      <div className="sm:col-span-3 bg-zinc-900 rounded-xl border border-zinc-800 p-4">
                         <p className="text-xs font-semibold text-white mb-3">Assignment Timeline</p>
                         <div className="relative h-24">
                           <svg viewBox="0 0 240 80" className="w-full h-full" preserveAspectRatio="none">
@@ -371,7 +371,7 @@ export default function WorkspacesSection() {
                         </div>
                       </div>
                       {/* Task Status donut */}
-                      <div className="col-span-2 bg-zinc-900 rounded-xl border border-zinc-800 p-4">
+                      <div className="sm:col-span-2 bg-zinc-900 rounded-xl border border-zinc-800 p-4">
                         <p className="text-xs font-semibold text-white mb-3">Task Status</p>
                         <div className="flex items-center justify-center">
                           <svg viewBox="0 0 80 80" className="w-20 h-20">
