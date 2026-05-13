@@ -108,7 +108,7 @@ export default function HeroSection() {
 
         <div className="max-w-4xl mx-auto text-center z-10 hero-text absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-6">
           <h1 className="text-4xl sm:text-5xl md:text-8xl font-semibold leading-[0.95] mb-6 sm:mb-8 tracking-tighter text-white">
-            <span className="whitespace-nowrap">Structured team</span> <br/><span className="text-zinc-300 lg:text-zinc-600 italic font-light">collaboration<span className="text-blue-200">.</span></span>
+            <span className="whitespace-nowrap">Collaboration</span> <br/><span className="text-zinc-300 lg:text-zinc-600 italic font-light">at its finest<span className="text-blue-200">.</span></span>
           </h1>
           <p className="text-base sm:text-xl text-zinc-200 lg:text-zinc-500 mb-12 max-w-xl mx-auto leading-relaxed font-light px-4">
             One <span className="text-blue-200/70">shared board</span> per project — plan, work together in real time, and turn ideas into step-by-step guides with AI.

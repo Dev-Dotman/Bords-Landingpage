@@ -2,6 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 import { render } from '@react-email/render';
 import { WaitlistEmail } from '@/lib/email/WaitlistEmail';
+import { WaitlistNotifyEmail } from '@/lib/email/WaitlistNotifyEmail';
 import { sendEmail } from '@/lib/email/sendEmail';
 
 function getSupabaseAdmin() {
@@ -52,11 +53,17 @@ export async function POST(request) {
 
     // Notify team — non-blocking
     try {
+      const notifyHtml = await render(WaitlistNotifyEmail({
+        name: name?.trim() || null,
+        email: email.toLowerCase().trim(),
+        source: source || 'landing-page',
+        timestamp: new Date().toUTCString(),
+      }));
       await sendEmail({
         to: 'usebords@gmail.com',
         toName: 'BORDS Team',
         subject: `New waitlist signup: ${name?.trim() || email.toLowerCase().trim()}`,
-        html: `<p><strong>Name:</strong> ${name?.trim() || '—'}</p><p><strong>Email:</strong> ${email.toLowerCase().trim()}</p><p><strong>Source:</strong> ${source || 'landing-page'}</p><p><strong>Time:</strong> ${new Date().toUTCString()}</p>`,
+        html: notifyHtml,
       });
     } catch (notifyErr) {
       console.error('Waitlist notify error:', notifyErr);
