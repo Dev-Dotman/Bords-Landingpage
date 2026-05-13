@@ -37,23 +37,23 @@ export default function BordsAISection() {
           </h2>
 
           <p className="text-base lg:text-lg text-zinc-300 font-light leading-relaxed border-l-2 border-zinc-600 pl-5 mb-8">
-            Most AI tools answer questions. BORDS AI answers them inside your workspace — grounded in the boards your team is operating from.
+            Most AI tools give generic answers. BORDS AI answers using your actual boards — so the help it gives is specific to how your team works.
           </p>
 
           <div className="space-y-5">
             <div>
               <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500 mb-1">01 / You control the context</p>
-              <p className="text-sm text-zinc-300 leading-relaxed font-light">Tag any board as a context source. The AI reads only what you point it at.</p>
+              <p className="text-sm text-zinc-300 leading-relaxed font-light">Pick which boards the AI should know about. It only reads what you choose to share with it.</p>
             </div>
 
             <div>
               <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500 mb-1">02 / Ask inside the work</p>
-              <p className="text-sm text-zinc-400 leading-relaxed font-light">Draft plans, write SOPs, answer questions — all responded to with real workspace context.</p>
+              <p className="text-sm text-zinc-400 leading-relaxed font-light">Draft plans, write guides, ask questions — and get answers based on what your team has actually built, not guesswork.</p>
             </div>
 
             <div>
               <p className="text-[10px] uppercase tracking-[0.35em] text-zinc-500 mb-1">03 / Responses that compound</p>
-              <p className="text-sm text-zinc-400 leading-relaxed font-light">Answers come through a chat interface inside the board. When something&apos;s worth keeping, you can push it directly into a board — turning a response into a plan, an SOP, or a decision on record.</p>
+              <p className="text-sm text-zinc-400 leading-relaxed font-light">You chat with BORDS AI right inside the board. When an answer is worth keeping, you can save it straight to a board — turning it into a plan, a guide, or a logged decision.</p>
             </div>
           </div>
 

@@ -111,7 +111,7 @@ export default function HeroSection() {
             <span className="whitespace-nowrap">Structured team</span> <br/><span className="text-zinc-300 lg:text-zinc-600 italic font-light">collaboration<span className="text-blue-200">.</span></span>
           </h1>
           <p className="text-base sm:text-xl text-zinc-200 lg:text-zinc-500 mb-12 max-w-xl mx-auto leading-relaxed font-light px-4">
-            One <span className="text-blue-200/70">infinite board canvas</span> to plan work, collaborate live, and turn plans into SOPs with AI.
+            One <span className="text-blue-200/70">shared board</span> per project — plan, work together in real time, and turn ideas into step-by-step guides with AI.
           </p>
           <p className="text-xs sm:text-sm text-zinc-400/90 tracking-wide uppercase">
             Personal • Teams • Consultants • Enterprise

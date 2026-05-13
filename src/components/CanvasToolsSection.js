@@ -3,6 +3,12 @@
 import { useState } from 'react';
 import { StickyNote, CheckSquare, Columns3, Type, Image, Table2, PenTool, Link2, Bell } from 'lucide-react';
 
+const rowConfig = [
+  { dir: 'left',  duration: '22s' },
+  { dir: 'right', duration: '17s' },
+  { dir: 'left',  duration: '28s' },
+];
+
 export default function CanvasToolsSection() {
   const [hoveredTool, setHoveredTool] = useState(null);
 
@@ -73,8 +79,58 @@ export default function CanvasToolsSection() {
           </p>
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+        {/* ── Mobile: 3 marquee rows ── */}
+        <div className="lg:hidden space-y-4 -mx-6">
+          <style>{`
+            @keyframes marqueeLeft {
+              from { transform: translateX(0); }
+              to   { transform: translateX(-50%); }
+            }
+            @keyframes marqueeRight {
+              from { transform: translateX(-50%); }
+              to   { transform: translateX(0); }
+            }
+          `}</style>
+
+          {[tools.slice(0,3), tools.slice(3,6), tools.slice(6,9)].map((rowTools, rowIndex) => {
+            const { dir, duration } = rowConfig[rowIndex];
+            const doubled = [...rowTools, ...rowTools];
+            return (
+              <div key={rowIndex} className="relative overflow-hidden">
+                {/* Edge fades */}
+                <div className="absolute left-0 top-0 bottom-0 w-10 bg-gradient-to-r from-zinc-950 to-transparent z-10 pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-10 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
+                <div
+                  className="flex gap-3"
+                  style={{
+                    width: 'max-content',
+                    animation: `${dir === 'left' ? 'marqueeLeft' : 'marqueeRight'} ${duration} linear infinite`,
+                  }}
+                >
+                  {doubled.map((tool, i) => {
+                    const Icon = tool.icon;
+                    return (
+                      <div key={i} className="w-60 flex-shrink-0 p-4 rounded-2xl bg-zinc-900/60 border border-zinc-800/60">
+                        <div className="flex items-start gap-3">
+                          <div className="w-9 h-9 rounded-xl bg-zinc-800 border border-zinc-700/50 flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-4 h-4 text-zinc-400" strokeWidth={1.5} />
+                          </div>
+                          <div className="min-w-0">
+                            <h3 className="text-sm font-medium text-white mb-1">{tool.name}</h3>
+                            <p className="text-xs text-zinc-500 font-light leading-relaxed">{tool.description}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ── Desktop: static 3-col grid ── */}
+        <div className="hidden lg:grid grid-cols-3 gap-4 lg:gap-5">
           {tools.map((tool, index) => {
             const Icon = tool.icon;
             return (

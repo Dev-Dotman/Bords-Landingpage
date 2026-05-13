@@ -1,5 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
+import { render } from '@react-email/render';
+import { DemoEmail } from '@/lib/email/DemoEmail';
+import { sendEmail } from '@/lib/email/sendEmail';
 
 function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
@@ -39,6 +42,19 @@ export async function POST(request) {
       }
       console.error('Supabase demo error:', error);
       return NextResponse.json({ error: 'Unable to submit demo request right now.' }, { status: 500 });
+    }
+
+    // Send confirmation email — non-blocking, don't fail the request if it errors
+    try {
+      const html = await render(DemoEmail({ name: name.trim(), company: company?.trim() || null, team_size: team_size || null, message: message?.trim() || null }));
+      await sendEmail({
+        to: email.toLowerCase().trim(),
+        toName: name.trim(),
+        subject: "Your BORDS demo request is confirmed",
+        html,
+      });
+    } catch (emailErr) {
+      console.error('Demo email send error:', emailErr);
     }
 
     return NextResponse.json({ message: 'Demo request submitted!' }, { status: 201 });

@@ -1,11 +1,11 @@
 import { CircleHelp, Sparkles } from 'lucide-react';
 
 const flow = [
-  'Capture: work, decisions, and discussions stay attached to boards',
-  'Structure: plans are converted into SOPs and repeatable workflows',
-  'Retrieve: AI can read this context and answer process questions',
-  'Assist: teammates get next steps tied to real company context',
-  'Improve: every update refines the system and strengthens memory',
+  'Capture: your work, decisions, and conversations stay attached to the right board',
+  'Structure: plans become step-by-step guides your team can follow',
+  'Retrieve: ask the AI how things work and get answers from your own boards',
+  'Assist: teammates get clear next steps based on how your team actually works',
+  'Improve: every update makes the whole system a little more useful',
 ];
 
 export default function CompanyBrainSection() {
@@ -25,7 +25,7 @@ export default function CompanyBrainSection() {
             <span className="text-zinc-500 italic">your company brain.</span>
           </h2>
           <p className="text-base lg:text-xl text-zinc-400 leading-relaxed font-light max-w-3xl mx-auto">
-            BORDS becomes a company brain through a repeatable loop: capture execution, structure it, retrieve it, assist teammates, and improve continuously.
+            BORDS builds a shared memory of how your team works — so nothing gets lost and everyone knows what to do.
           </p>
         </div>
 
@@ -51,10 +51,10 @@ export default function CompanyBrainSection() {
               </div>
 
               <h3 className="text-2xl md:text-3xl lg:text-5xl font-semibold brand-font tracking-tight leading-tight text-white mb-4 lg:mb-6">
-                The company brain is built from workflow evidence.
+                Your team&apos;s knowledge comes from the work itself.
               </h3>
               <p className="text-sm md:text-base lg:text-lg text-zinc-300/90 leading-relaxed font-light max-w-xl">
-                Instead of static docs, BORDS links planning, execution, and decisions in one place. That makes organizational knowledge usable, teachable, and searchable.
+                Instead of notes nobody reads, BORDS connects your plans, work, and decisions in one place — so your team can look things up, bring new people up to speed, and build on what came before.
               </p>
             </div>
 
@@ -69,7 +69,7 @@ export default function CompanyBrainSection() {
                 ))}
               </div>
               <p className="text-xs text-zinc-400/90 leading-relaxed mt-3">
-                This loop repeats as teams collaborate, so the system gets smarter with real usage.
+                The more your team uses BORDS, the more useful it becomes.
               </p>
             </div>
           </div>
@@ -78,7 +78,7 @@ export default function CompanyBrainSection() {
             <div className="rounded-2xl border border-white/10 bg-black/35 backdrop-blur-sm px-5 py-4 flex items-start gap-3 max-w-3xl">
               <CircleHelp className="w-4 h-4 text-zinc-400 mt-0.5 shrink-0" strokeWidth={1.8} />
               <p className="text-sm lg:text-base text-zinc-200 font-light leading-relaxed">
-                Result: every teammate can ask what to do, why it is done that way, and what changed, then act from shared context.
+                Result: anyone on the team can ask what to do, why things work a certain way, and what&apos;s changed — then get straight back to work.
               </p>
             </div>
           </div>

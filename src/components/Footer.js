@@ -20,7 +20,18 @@ export default function Footer() {
           <a href="#features" className="hover:text-white transition-colors">Why BORDS</a>
           <a href="#manifesto" className="hover:text-white transition-colors">Our approach</a>
         </div>
-        <p className="text-xs text-center md:text-left">© 2026 AXECORE Labs Inc. All rights reserved.</p>
+        <div className="text-center md:text-right space-y-1">
+          <p className="text-xs">© 2026 AXECORE Labs Inc. All rights reserved.</p>
+          <p className="text-xs">
+            Want a website like this?{' '}
+            <a
+              href="mailto:support@axecorelabs.com"
+              className="text-zinc-500 hover:text-white transition-colors underline underline-offset-2"
+            >
+              support@axecorelabs.com
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );

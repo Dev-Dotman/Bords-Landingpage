@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 export default function WaitlistModal({ isOpen, onClose, source = 'landing-page' }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
@@ -29,6 +30,7 @@ export default function WaitlistModal({ isOpen, onClose, source = 'landing-page'
     if (!isOpen) {
       setName('');
       setEmail('');
+      setConsent(false);
       setError('');
       setSuccess(false);
       setIsSubmitting(false);
@@ -42,6 +44,11 @@ export default function WaitlistModal({ isOpen, onClose, source = 'landing-page'
     const cleanEmail = email.trim().toLowerCase();
     if (!cleanEmail || !cleanEmail.includes('@')) {
       setError('Please enter a valid email address.');
+      return;
+    }
+
+    if (!consent) {
+      setError('Please agree to receive emails to continue.');
       return;
     }
 
@@ -145,6 +152,28 @@ export default function WaitlistModal({ isOpen, onClose, source = 'landing-page'
               </div>
 
               {error ? <p className="text-sm text-red-400">{error}</p> : null}
+
+              <label className="flex items-start gap-3 cursor-pointer group">
+                <div className="relative mt-0.5 shrink-0">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={e => setConsent(e.target.checked)}
+                    className="sr-only peer"
+                    id="waitlist-consent"
+                  />
+                  <div className="w-4 h-4 rounded border border-zinc-700 bg-zinc-900 peer-checked:bg-white peer-checked:border-white transition-colors flex items-center justify-center">
+                    {consent && (
+                      <svg className="w-2.5 h-2.5 text-zinc-950" viewBox="0 0 10 10" fill="none">
+                        <path d="M1.5 5L4 7.5L8.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className="text-xs text-zinc-500 leading-relaxed group-hover:text-zinc-400 transition-colors">
+                  I agree to receive emails from BORDS about early access, product updates, and launch news. You can unsubscribe at any time.
+                </span>
+              </label>
 
               <button
                 type="submit"

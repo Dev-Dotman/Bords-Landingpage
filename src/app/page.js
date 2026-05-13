@@ -19,6 +19,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import WaitlistModal from "@/components/WaitlistModal";
 import DemoRequestModal from "@/components/DemoRequestModal";
+import ChatWidget from "@/components/ChatWidget";
 
 export default function Home() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function Home() {
   return (
     <>
       <BordsAnimation />
-      <Navbar onWaitlistClick={() => openWaitlist("navbar")} />
+      <Navbar onWaitlistClick={() => openWaitlist("navbar")} onDemoClick={() => openDemo("navbar")} />
       
       <div id="smooth-wrapper">
         <div id="smooth-content">
@@ -60,6 +61,7 @@ export default function Home() {
         </div>
       </div>
 
+      <ChatWidget />
       <WaitlistModal
         isOpen={isWaitlistOpen}
         source={waitlistSource}

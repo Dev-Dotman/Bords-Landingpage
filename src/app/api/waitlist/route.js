@@ -1,5 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
+import { render } from '@react-email/render';
+import { WaitlistEmail } from '@/lib/email/WaitlistEmail';
+import { sendEmail } from '@/lib/email/sendEmail';
 
 function getSupabaseAdmin() {
   const url = process.env.SUPABASE_URL;
@@ -32,6 +35,19 @@ export async function POST(request) {
       }
       console.error('Supabase waitlist error:', error);
       return NextResponse.json({ error: 'Unable to join waitlist right now.' }, { status: 500 });
+    }
+
+    // Send confirmation email — non-blocking, don't fail the request if it errors
+    try {
+      const html = await render(WaitlistEmail({ name: name?.trim() || null }));
+      await sendEmail({
+        to: email.toLowerCase().trim(),
+        toName: name?.trim() || undefined,
+        subject: "You're on the BORDS waitlist",
+        html,
+      });
+    } catch (emailErr) {
+      console.error('Waitlist email send error:', emailErr);
     }
 
     return NextResponse.json({ message: 'Successfully joined the waitlist!' }, { status: 201 });

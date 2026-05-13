@@ -30,9 +30,9 @@ export default function ProductDepthSection() {
             <div className="flex gap-4 lg:gap-6">
               <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-pink-200/20"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Boards as living systems</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">A board for each part of your work</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  Bring planning, conversations, workflows, and SOPs into one board so your team can move from the same source of truth.
+                  Create a board for each project, client, or team. Keep plans, conversations, tasks, and guides inside it — so everyone knows what&apos;s happening and what to do next.
                 </p>
               </div>
             </div>
@@ -41,16 +41,16 @@ export default function ProductDepthSection() {
               <div>
                 <h4 className="text-lg lg:text-xl font-medium text-white mb-2">AI built into the board</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  BORDS AI uses board context to shape plans, generate SOPs, answer questions, and help each teammate move work forward.
+                  BORDS AI reads your boards and helps with whatever comes next — writing a plan, drafting a guide, or answering a question for your team.
                 </p>
               </div>
             </div>
             <div className="flex gap-4 lg:gap-6">
               <div className="flex-shrink-0 w-px h-16 lg:h-24 bg-yellow-100/10"></div>
               <div>
-                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Real-time collaboration at every step</h4>
+                <h4 className="text-lg lg:text-xl font-medium text-white mb-2">Work together in real time</h4>
                 <p className="text-sm lg:text-base text-zinc-500 font-light leading-relaxed">
-                  Collaborate live with friends or teams, keep context in one place, and make decisions without constant app switching.
+                  Work on the same board at the same time — with live updates, no version conflicts, and no need to jump between apps.
                 </p>
               </div>
             </div>

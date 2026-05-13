@@ -61,7 +61,7 @@ export default function SyncVisualization() {
         </div>
 
         {/* Main content area */}
-        <div className="px-6 lg:px-8 py-8 lg:py-10">
+        <div className="px-6 lg:px-8 py-8 lg:py-10 min-h-[320px] md:min-h-[240px]">
 
           {/* Three-column on desktop, stacked on mobile */}
           <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 md:gap-6 lg:gap-10 items-center">
@@ -104,7 +104,7 @@ export default function SyncVisualization() {
             </div>
 
             {/* Transfer column — horizontal on mobile, vertical on desktop */}
-            <div className="flex md:flex-col items-center justify-center gap-3 py-2 md:py-4">
+            <div className="flex md:flex-col items-center justify-center gap-3 py-2 md:py-4 min-h-[72px] md:min-h-[160px]">
               {syncState === 'offline' ? (
                 <div className="flex md:flex-col items-center gap-2">
                   <svg className="w-5 h-5 text-zinc-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
