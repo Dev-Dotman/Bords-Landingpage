@@ -144,7 +144,7 @@ export default function ChatWidget() {
       <button
         onClick={() => setOpen(v => !v)}
         aria-label={open ? 'Close chat' : 'Ask about BORDS'}
-        className={`fixed bottom-6 right-6 z-50 w-13 h-13 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 ${
+        className={`fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 w-13 h-13 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 ${
           open
             ? 'bg-zinc-800 border border-zinc-700 text-zinc-400 hover:bg-zinc-700'
             : 'bg-white text-zinc-950 hover:scale-105'
@@ -159,12 +159,14 @@ export default function ChatWidget() {
 
       {/* Chat panel */}
       <div
-        className={`fixed bottom-[76px] right-6 z-50 w-[360px] max-w-[calc(100vw-24px)] transition-all duration-300 origin-bottom-right ${
+        className={`fixed z-50 transition-all duration-300 origin-bottom-right
+          inset-x-3 bottom-[72px] top-[88px]
+          sm:top-auto sm:inset-x-auto sm:bottom-[76px] sm:right-6 sm:w-[360px] sm:max-w-[calc(100vw-24px)] ${
           open ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
         }`}
       >
-        <div className="bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl shadow-black/60 flex flex-col overflow-hidden"
-          style={{ height: 480, maxHeight: 'calc(100dvh - 100px)' }}>
+        <div className="bg-zinc-950 border border-zinc-800 rounded-2xl shadow-2xl shadow-black/60 flex flex-col overflow-hidden h-full sm:h-[480px]"
+          style={{ maxHeight: 'calc(100dvh - 100px)' }}>
 
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800/80 shrink-0">
@@ -249,7 +251,7 @@ export default function ChatWidget() {
               onChange={e => setInput(e.target.value)}
               placeholder="Ask anything about BORDS…"
               disabled={streaming}
-              className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2.5 text-sm text-white placeholder-zinc-600 outline-none focus:border-zinc-600 transition-colors disabled:opacity-50"
+              className="flex-1 bg-zinc-900 border border-zinc-800 rounded-xl px-3 py-2.5 text-base sm:text-sm text-white placeholder-zinc-600 outline-none focus:border-zinc-600 transition-colors disabled:opacity-50"
             />
             <button
               type="submit"
