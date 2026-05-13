@@ -57,6 +57,18 @@ export async function POST(request) {
       console.error('Demo email send error:', emailErr);
     }
 
+    // Notify team — non-blocking
+    try {
+      await sendEmail({
+        to: 'usebords@gmail.com',
+        toName: 'BORDS Team',
+        subject: `New demo request: ${name.trim()}${company?.trim() ? ` (${company.trim()})` : ''}`,
+        html: `<p><strong>Name:</strong> ${name.trim()}</p><p><strong>Email:</strong> ${email.toLowerCase().trim()}</p><p><strong>Company:</strong> ${company?.trim() || '—'}</p><p><strong>Team size:</strong> ${team_size || '—'}</p><p><strong>Message:</strong> ${message?.trim() || '—'}</p><p><strong>Source:</strong> ${source || 'landing-page'}</p><p><strong>Time:</strong> ${new Date().toUTCString()}</p>`,
+      });
+    } catch (notifyErr) {
+      console.error('Demo notify error:', notifyErr);
+    }
+
     return NextResponse.json({ message: 'Demo request submitted!' }, { status: 201 });
   } catch (err) {
     console.error('Demo API error:', err);

@@ -50,6 +50,18 @@ export async function POST(request) {
       console.error('Waitlist email send error:', emailErr);
     }
 
+    // Notify team — non-blocking
+    try {
+      await sendEmail({
+        to: 'usebords@gmail.com',
+        toName: 'BORDS Team',
+        subject: `New waitlist signup: ${name?.trim() || email.toLowerCase().trim()}`,
+        html: `<p><strong>Name:</strong> ${name?.trim() || '—'}</p><p><strong>Email:</strong> ${email.toLowerCase().trim()}</p><p><strong>Source:</strong> ${source || 'landing-page'}</p><p><strong>Time:</strong> ${new Date().toUTCString()}</p>`,
+      });
+    } catch (notifyErr) {
+      console.error('Waitlist notify error:', notifyErr);
+    }
+
     return NextResponse.json({ message: 'Successfully joined the waitlist!' }, { status: 201 });
   } catch (err) {
     console.error('Waitlist API error:', err);
