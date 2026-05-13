@@ -87,16 +87,18 @@ export default function SyncVisualization() {
                         : 'bg-zinc-800/60 border-zinc-800'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-2">
                       <span className="text-xs text-zinc-400">{item}</span>
-                      {syncState === 'offline' && i < changeCount && (
-                        <span className="text-[10px] text-zinc-500 bg-zinc-700/50 px-2 py-0.5 rounded-full">edited</span>
-                      )}
-                      {syncState === 'synced' && (
-                        <svg className="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <div className="relative h-5 w-14 shrink-0 flex items-center justify-end">
+                        <span className={`text-[10px] text-zinc-500 bg-zinc-700/50 px-2 py-0.5 rounded-full absolute transition-opacity duration-300 ${
+                          syncState === 'offline' && i < changeCount ? 'opacity-100' : 'opacity-0'
+                        }`}>edited</span>
+                        <svg className={`w-3.5 h-3.5 text-zinc-500 absolute transition-opacity duration-300 ${
+                          syncState === 'synced' ? 'opacity-100' : 'opacity-0'
+                        }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
-                      )}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -162,16 +164,18 @@ export default function SyncVisualization() {
                         : 'bg-zinc-800/60 border-zinc-800'
                     }`}
                   >
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between gap-2">
                       <span className="text-xs text-zinc-400">{item}</span>
-                      {syncState === 'synced' && (
-                        <svg className="w-3.5 h-3.5 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                      <div className="relative h-5 w-14 shrink-0 flex items-center justify-end">
+                        <span className={`text-[10px] text-zinc-600 absolute transition-opacity duration-300 ${
+                          syncState === 'offline' ? 'opacity-100' : 'opacity-0'
+                        }`}>stale</span>
+                        <svg className={`w-3.5 h-3.5 text-zinc-500 absolute transition-opacity duration-300 ${
+                          syncState === 'synced' ? 'opacity-100' : 'opacity-0'
+                        }`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
-                      )}
-                      {syncState === 'offline' && (
-                        <span className="text-[10px] text-zinc-600">stale</span>
-                      )}
+                      </div>
                     </div>
                   </div>
                 ))}
