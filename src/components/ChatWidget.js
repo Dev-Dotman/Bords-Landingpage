@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { MessageCircle, X, Send, RotateCcw } from 'lucide-react';
+import { Sparkles, X, Send, RotateCcw } from 'lucide-react';
 
 const SUGGESTED = [
   'What is BORDS?',
@@ -153,7 +153,7 @@ export default function ChatWidget() {
       >
         {open
           ? <X className="w-4 h-4" strokeWidth={2} />
-          : <MessageCircle className="w-5 h-5" strokeWidth={1.8} />
+          : <Sparkles className="w-5 h-5" strokeWidth={1.8} />
         }
       </button>
 
@@ -161,7 +161,7 @@ export default function ChatWidget() {
       <div
         className={`fixed z-50 transition-all duration-300 origin-bottom-right
           inset-x-3 bottom-[72px] top-[88px]
-          sm:top-auto sm:inset-x-auto sm:bottom-[76px] sm:right-6 sm:w-[360px] sm:max-w-[calc(100vw-24px)] ${
+          sm:top-auto sm:inset-x-auto sm:bottom-[88px] sm:right-6 sm:w-[360px] sm:max-w-[calc(100vw-24px)] ${
           open ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
         }`}
       >
