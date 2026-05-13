@@ -29,11 +29,19 @@
 
 ## 1. What is Bords?
 
-Bords is a **visual productivity platform** — an infinite digital canvas where you organize ideas, tasks, and projects your way. Instead of forcing you into a rigid list or a single app type, Bords gives you a blank surface and lets you drop any kind of content onto it: sticky notes, kanban boards, checklists, drawings, text, images, and more.
+Bords is a **work operating system** — a structured platform where teams design how they operate, embed that design into organized systems, and interact with it through an AI layer that makes organizational knowledge accessible, actionable, and scalable.
 
-Everything on a board updates in real time, so your whole team always sees the same thing — whether they're in the same room or on different continents.
+Most teams suffer from the same problem: communication is scattered across chat apps, plans live in documents no one reads, processes exist only in people's heads, and institutional knowledge disappears when people leave. Bords is built to solve that at the root.
 
-**Core philosophy:** More than a to-do app. A thinking space that adapts to how you work, not the other way around.
+Work in Bords is organized into **boards** that act as living systems — they house conversations, plans, processes, and institutional knowledge in a way that remains accessible and useful long after it was created. Boards aren't just canvases. They're the structural unit of how your organization thinks and operates.
+
+At the center of the platform is **Bords AI** — a context-aware assistant that doesn't just answer questions or help you write. It actively participates in building your workspace. Bords AI can create boards for you, collaborate on structured plans, and translate those plans into detailed standard operating procedures (SOPs) that get organized directly into boards. Ideas become structured, executable systems without any manual formatting work.
+
+Over time, as your team builds and refines more workflows, SOPs, and institutional knowledge inside Bords, the platform evolves into your organization's **company brain** — a central repository of how your company thinks, decides, and operates. Bords AI can interpret this context to answer questions about processes, explain decisions, and help any team member understand not just *what* to do, but *why* it is done that way and how their role connects to the larger structure.
+
+This also creates a powerful model for knowledge transfer. Consultants and operators can design complete operational systems — encoded as boards with structured SOPs — and deploy them into organizations. Bords AI then guides teams through these systems, turning static documentation into an interactive learning and execution environment.
+
+**Core positioning:** Bords sits at the intersection of collaboration software and intelligent operational infrastructure. It is not a task manager. It is not a note-taking app. It is the platform where organizations design how they work — and where that design becomes something teams can actually use.
 
 ---
 
